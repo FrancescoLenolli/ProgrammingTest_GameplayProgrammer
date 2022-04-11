@@ -1389,6 +1389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397e2ca3ba253f94883b037fcc0e36f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationLimit: {x: -30, y: 60}
 --- !u!1 &1088046326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,14 +1513,14 @@ Transform:
   m_LocalPosition: {x: -4.8416176, y: -3.7484207, z: 5.3263397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2028523751}
   - {fileID: 6761960895316682647}
   - {fileID: 485868196}
   - {fileID: 356337048}
-  - {fileID: 800700578}
   - {fileID: 636940531}
-  - {fileID: 1729148397}
+  - {fileID: 800700578}
+  - {fileID: 2028523751}
   - {fileID: 7756511560419399243}
+  - {fileID: 1729148397}
   - {fileID: 354995926}
   m_Father: {fileID: 0}
   m_RootOrder: 5
