@@ -1710,3 +1710,35 @@ Received Import Request.
 Start importing Assets/Lighting using Guid(c633543ff10457b4e8fc048e30bee2d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb7e7f2618cc9deb759f6cc9e323e7fc') in 0.003930 seconds 
   Import took 0.010698 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 160.566803 seconds.
+  path: Assets/Prefabs
+  artifactKey: Guid(08c81f8bf324d7248a84569cac3381ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs using Guid(08c81f8bf324d7248a84569cac3381ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a8703614cf95d10cbebacf9610dd8d3') in 0.003971 seconds 
+  Import took 0.012139 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.411654 seconds.
+  path: Assets/Prefabs/picture_frame_1.prefab
+  artifactKey: Guid(c61c52293a14c4e4c986d66822123534) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/picture_frame_1.prefab using Guid(c61c52293a14c4e4c986d66822123534) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30a99015ad69a49aab1c5fbd07057729') in 3.948565 seconds 
+  Import took 3.960542 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 86.231051 seconds.
+  path: Assets/Prefabs/chair_1.prefab
+  artifactKey: Guid(7f1051d51841b464080ddc1a42ed9e10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/chair_1.prefab using Guid(7f1051d51841b464080ddc1a42ed9e10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68cc9b3013c01d52593e19f17915f157') in 0.061363 seconds 
+  Import took 0.068139 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 192.754711 seconds.
+  path: Assets/Prefabs/table_1.prefab
+  artifactKey: Guid(67220605b8de28d409b0de152a27d720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/table_1.prefab using Guid(67220605b8de28d409b0de152a27d720) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20e89d5491e5169a94680d1cc8afc4e0') in 0.059679 seconds 
+  Import took 0.075573 seconds .
+
