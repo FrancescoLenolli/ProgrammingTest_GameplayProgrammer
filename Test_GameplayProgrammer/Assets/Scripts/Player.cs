@@ -11,10 +11,13 @@ public class Player : MonoBehaviour
     private bool interaction1Pressed = false;
     private bool interaction2Pressed = false;
     private float startingHeight;
+    private TargetingSystem targetingSystem;
+    private PlayerInteraction playerInteraction;
 
     private void Awake()
     {
         startingHeight = transform.position.y;
+        SetInteractionSystem();
     }
 
     private void Update()
@@ -66,13 +69,13 @@ public class Player : MonoBehaviour
     private void ItemInteraction1()
     {
         if (interaction1Pressed && !interaction2Pressed)
-            Debug.Log("Interacting First");
+            playerInteraction.Interact1();
     }
 
     private void ItemInteraction2()
     {
         if (interaction2Pressed && !interaction1Pressed)
-            Debug.Log("Interacting Second");
+            playerInteraction.Interact2();
     }
 
     private float ClampAngle(float angle, float min, float max)
@@ -84,5 +87,16 @@ public class Player : MonoBehaviour
         angle = Mathf.Clamp(angle, min, max);
 
         return angle;
+    }
+
+    private void SetInteractionSystem()
+    {
+        targetingSystem = GetComponent<TargetingSystem>();
+        if (targetingSystem)
+        {
+            playerInteraction = GetComponent<PlayerInteraction>();
+            if (playerInteraction)
+                targetingSystem.OnTargeting += playerInteraction.SetTargetedObject;
+        }
     }
 }
