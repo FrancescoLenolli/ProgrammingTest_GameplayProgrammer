@@ -18,11 +18,11 @@ public class Player : MonoBehaviour
 
     public void OnItemInteraction1(InputValue value)
     {
-        Debug.Log("Interaction1");
+        Debug.Log("Interaction");
     }
 
     private void OnItemInteraction2(InputValue value)
     {
-        Debug.Log("Interaction2");
+        Debug.Log("Another Interaction");
     }
 }
