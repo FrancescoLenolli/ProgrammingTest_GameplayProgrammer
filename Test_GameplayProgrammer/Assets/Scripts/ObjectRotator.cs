@@ -5,6 +5,8 @@ using UnityEngine;
 public class ObjectRotator : Interactable
 {
     [SerializeField] private float rotationSpeed = 10f;
+    [Tooltip("The additional angle that can be added or subtracted from this object initial rotation" +
+        "on the Y axis.")]
     [SerializeField] private float additionalRotation = 45f;
     private float startingRotationY;
 

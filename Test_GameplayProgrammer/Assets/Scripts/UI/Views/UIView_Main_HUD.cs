@@ -14,6 +14,18 @@ public class UIView_Main_HUD : UIView
     private Action onInteraction1;
     private Action onInteraction2;
 
+    public override void ShowView()
+    {
+        base.ShowView();
+
+        /*
+         * If the Player open the context menu and then open the Options menu,
+         * when going back the context menu is still open, and the cursor needs to be visible.
+         */
+        if (contextMenu.alpha > 0)
+            Cursor.visible = true;
+    }
+
     public void ShowContextMenu(Interactable item)
     {
         if (item)

@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/*
+ * Makes it easier to tweak values for all the interactable objects in the scene
+ * from the Options Menu. If you want to change values for a single object
+ * you could link up the Item targeted by the Player to the Options Menu instead.
+ */
 public class InteractablesHandler : MonoBehaviour
 {
     private List<ObjectRotator> objectRotators = new List<ObjectRotator>();

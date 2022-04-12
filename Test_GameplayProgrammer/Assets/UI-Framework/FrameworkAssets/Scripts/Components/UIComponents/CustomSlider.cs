@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using TMPro;
 
 namespace UIFramework.Components
 {
     public class CustomSlider : UIComponent
     {
+        [SerializeField] private TextMeshProUGUI labelValue = null;
         private Slider slider;
 
         private void Awake()
@@ -23,9 +25,15 @@ namespace UIFramework.Components
             slider.maxValue = maxValue;
             slider.value = startingValue;
             slider.wholeNumbers = wholeNumbers;
+            UpdateLabel();
 
             if (action != null)
                 SetAction(action);
+        }
+
+        public void UpdateLabel()
+        {
+            labelValue.text = string.Format("{0:G}", slider.value);
         }
 
         public void SetAction(UnityAction<float> action)
@@ -37,6 +45,7 @@ namespace UIFramework.Components
         public void SetValue(float value)
         {
             slider.value = value;
+            UpdateLabel();
         }
 
         public float GetValue()
@@ -47,6 +56,7 @@ namespace UIFramework.Components
         public void ResetValue()
         {
             slider.value = slider.maxValue;
+            UpdateLabel();
         }
 
         public void EnableSlider(bool isInteractable)

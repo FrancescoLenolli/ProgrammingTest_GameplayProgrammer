@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public Action onOpenOptions;
     [SerializeField] private Vector2 rotationLimit = Vector2.zero;
     [SerializeField] private float movementSpeed = 10f;
     [SerializeField] private float rotationSpeed = 10f;
@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private bool canRotate = true;
     private bool canMove = true;
     private bool targetSelected = false;
+    private bool gamePaused = false;
     private float startingHeight;
     private TargetingSystem targetingSystem;
     private PlayerInteraction playerInteraction;
@@ -31,13 +32,22 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(canRotate) Rotate();
-        if(canMove) Move();
+        if (gamePaused)
+            return;
+
+        if (canRotate) Rotate();
+        if (canMove) Move();
         if (targetSelected)
         {
             ItemInteraction1();
             ItemInteraction2();
         }
+    }
+
+    // This and gamePaused should ideally be outside the Player script.
+    public void PauseGame(bool pauseGame)
+    {
+        gamePaused = pauseGame;
     }
 
     private void OnMove(InputValue value)
@@ -74,7 +84,7 @@ public class Player : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.lockState = CursorLockMode.None;
         }
-    }    
+    }
 
     private void OnDeselectItem()
     {
@@ -83,6 +93,12 @@ public class Player : MonoBehaviour
         canRotate = true;
         canMove = true;
         Cursor.visible = false;
+    }
+
+    private void OnOpenOptions()
+    {
+        if (!gamePaused)
+            onOpenOptions?.Invoke();
     }
 
     private void Move()
