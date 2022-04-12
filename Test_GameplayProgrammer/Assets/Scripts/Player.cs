@@ -6,15 +6,22 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Vector2 rotationLimit = Vector2.zero;
+    [SerializeField] private float movementSpeed = 10f;
+    [SerializeField] private float rotationSpeed = 10f;
     private Vector3 movementValue = Vector3.zero;
     private Vector3 rotationValue = Vector3.zero;
     private bool interaction1Pressed = false;
     private bool interaction2Pressed = false;
+    private bool canRotate = true;
+    private bool canMove = true;
+    private bool targetSelected = false;
     private float startingHeight;
     private TargetingSystem targetingSystem;
     private PlayerInteraction playerInteraction;
 
     public PlayerInteraction PlayerInteraction { get => playerInteraction; }
+    public float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
+    public float RotationSpeed { get => rotationSpeed; set => rotationSpeed = value; }
 
     private void Awake()
     {
@@ -24,10 +31,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        Move();
-        Rotate();
-        ItemInteraction1();
-        ItemInteraction2();
+        if(canRotate) Rotate();
+        if(canMove) Move();
+        if (targetSelected)
+        {
+            ItemInteraction1();
+            ItemInteraction2();
+        }
     }
 
     private void OnMove(InputValue value)
@@ -53,16 +63,38 @@ public class Player : MonoBehaviour
         interaction2Pressed = !interaction2Pressed;
     }
 
+    private void OnSelectItem()
+    {
+        if (playerInteraction.SelectTarget())
+        {
+            targetSelected = true;
+            canRotate = false;
+            canMove = false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }    
+
+    private void OnDeselectItem()
+    {
+        playerInteraction.DeselectTarget();
+        targetSelected = false;
+        canRotate = true;
+        canMove = true;
+        Cursor.visible = false;
+    }
+
     private void Move()
     {
-        transform.Translate(10 * Time.deltaTime * movementValue);
+        transform.Translate(movementSpeed * Time.deltaTime * movementValue);
         transform.position = new Vector3(transform.position.x,
             startingHeight, transform.position.z);
     }
 
     private void Rotate()
     {
-        transform.Rotate(10 * Time.deltaTime * rotationValue);
+        transform.Rotate(rotationSpeed * Time.deltaTime * rotationValue);
 
         float rotationX = ClampAngle(transform.rotation.eulerAngles.x, rotationLimit.x, rotationLimit.y);
         transform.rotation = Quaternion.Euler(rotationX, transform.rotation.eulerAngles.y, 0.0f);

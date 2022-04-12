@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
@@ -11,10 +9,23 @@ public class PlayerInteraction : MonoBehaviour
     public void SetTargetedObject(Interactable newObject)
     {
         if (targetedObject != newObject)
-        {
             targetedObject = newObject;
+    }
+
+    public bool SelectTarget()
+    {
+        if (targetedObject)
+        {
             onTargetedObject?.Invoke(targetedObject);
+            return true;
         }
+        return false;
+    }
+
+    public void DeselectTarget()
+    {
+        targetedObject = null;
+        onTargetedObject?.Invoke(targetedObject);
     }
 
     public void Interact1()
