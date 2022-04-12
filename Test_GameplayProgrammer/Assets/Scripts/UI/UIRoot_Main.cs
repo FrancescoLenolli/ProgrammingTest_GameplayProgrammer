@@ -6,6 +6,7 @@ using UIFramework.StateMachine;
 public class UIRoot_Main : UIRoot
 {
     public Player player;
+    public InteractablesHandler interactablesHandler;
     public UIView_Main_HUD viewHUD;
     public UIView_Main_Options viewOptions;
 }

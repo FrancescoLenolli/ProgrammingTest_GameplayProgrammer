@@ -8,12 +8,12 @@ public class ObjectScaler : Interactable
     private float minScaleX;
     private float maxScaleX;
 
+    public float ScalePercentage { get => scalingPercentage; set => CountScaleLimits(value); }
+
     private void Awake()
     {
-        float scalePercentage = transform.localScale.x * scalingPercentage / 100;
         startingScaleX = transform.localScale.x;
-        minScaleX = startingScaleX - scalePercentage;
-        maxScaleX = startingScaleX + scalePercentage;
+        CountScaleLimits(scalingPercentage);
     }
 
     public override void Interact1()
@@ -38,5 +38,13 @@ public class ObjectScaler : Interactable
             transform.localScale.x - scaleAmount,
             transform.localScale.y - scaleAmount,
             transform.localScale.z - scaleAmount);
+    }
+
+    private void CountScaleLimits(float newScalePercentage)
+    {
+        scalingPercentage = newScalePercentage;
+        float scalePercentage = startingScaleX * scalingPercentage / 100;
+        minScaleX = startingScaleX - scalePercentage;
+        maxScaleX = startingScaleX + scalePercentage;
     }
 }

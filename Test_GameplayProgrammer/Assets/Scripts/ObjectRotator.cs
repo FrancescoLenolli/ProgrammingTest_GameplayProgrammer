@@ -5,8 +5,10 @@ using UnityEngine;
 public class ObjectRotator : Interactable
 {
     [SerializeField] private float rotationSpeed = 10f;
-    [SerializeField] private float maxRotation = 45f;
+    [SerializeField] private float additionalRotation = 45f;
     private float startingRotationY;
+
+    public float AdditionalRotation { get => additionalRotation; set => additionalRotation = value; }
 
     private void Awake()
     {
@@ -18,7 +20,7 @@ public class ObjectRotator : Interactable
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
         Vector3 eulerRotation = transform.rotation.eulerAngles;
         float clampedRotationY = Mathf.Clamp(eulerRotation.y,
-            startingRotationY - maxRotation, startingRotationY + maxRotation);
+            startingRotationY - additionalRotation, startingRotationY + additionalRotation);
         transform.rotation = Quaternion.Euler(eulerRotation.x, clampedRotationY, eulerRotation.z);
     }
 
@@ -27,7 +29,7 @@ public class ObjectRotator : Interactable
         transform.Rotate(Vector3.up, -rotationSpeed * Time.deltaTime);
         Vector3 eulerRotation = transform.rotation.eulerAngles;
         float clampedRotationY = Mathf.Clamp(eulerRotation.y,
-            startingRotationY - maxRotation, startingRotationY + maxRotation);
+            startingRotationY - additionalRotation, startingRotationY + additionalRotation);
         transform.rotation = Quaternion.Euler(eulerRotation.x, clampedRotationY, eulerRotation.z);
     }
 }
