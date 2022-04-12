@@ -12,10 +12,15 @@ public class UIView_Main_Options : UIView
     public Action<float> onChangeRotationAngle;
     public Action<float> onChangeScalePercentage;
     public Action onCloseOptions;
+    [Tooltip("Which button should be selected first when opening the Options Menu." +
+        "Helps with Gamepad Navigation.")]
+    [SerializeField] private GameObject firstSelected = null;
     [SerializeField] private CustomSlider sliderMovementSpeed = null;
     [SerializeField] private CustomSlider sliderRotationSpeed = null;
     [SerializeField] private CustomSlider sliderRotationAngle = null;
     [SerializeField] private CustomSlider sliderScalePercentage = null;
+
+    public GameObject FirstSelected { get => firstSelected; }
 
     public void Init()
     {

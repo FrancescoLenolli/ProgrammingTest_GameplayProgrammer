@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UIFramework.StateMachine;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UIState_Main_Options : UIState_Main
 {
@@ -32,6 +33,7 @@ public class UIState_Main_Options : UIState_Main
 
     private void OpenOptions()
     {
+        EventSystem.current.SetSelectedGameObject(view.FirstSelected);
         Cursor.visible = true;
         root.player.PauseGame(true);
         owner.ChangeState(GetType());
@@ -39,6 +41,7 @@ public class UIState_Main_Options : UIState_Main
 
     private void CloseOptions()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         Cursor.visible = false;
         root.player.PauseGame(false);
         owner.BackToLastState();
