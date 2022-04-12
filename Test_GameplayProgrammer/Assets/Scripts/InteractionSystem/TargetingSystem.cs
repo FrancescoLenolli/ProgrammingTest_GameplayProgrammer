@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Backbone of the InteractionSystem.
+ * Find a interactable target using a TargetingMethod (raycast is the most common one
+ * but there are others methods you could use) and display the valid target using
+ * a TargetingBehaviour (highlight it with a shader, increase its size or make it rotate, etc...).
+ */
 public class TargetingSystem : MonoBehaviour
 {
     public bool enableTargeting = false;

@@ -1,6 +1,12 @@
 using System;
 using UnityEngine;
 
+/*
+ * Player component with the sole puropose of handling 
+ * interactions with interactable objects. Avoid filling the Player
+ * script with too much clutter and could be made more generic
+ * with a bit of tweaking.
+ */
 public class PlayerInteraction : MonoBehaviour
 {
     public Action<Interactable> onTargetedObject;

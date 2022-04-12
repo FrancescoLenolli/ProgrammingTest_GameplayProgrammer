@@ -5,8 +5,11 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public Action onOpenOptions;
+    [Tooltip("Define limits for the rotation (in angles) on the X axis.")]
     [SerializeField] private Vector2 rotationLimit = Vector2.zero;
+    [Tooltip("How fast can the Player walk.")]
     [SerializeField] private float movementSpeed = 10f;
+    [Tooltip("How fast can the Player move the camera around.")]
     [SerializeField] private float rotationSpeed = 10f;
     private Vector3 movementValue = Vector3.zero;
     private Vector3 rotationValue = Vector3.zero;
@@ -81,8 +84,6 @@ public class Player : MonoBehaviour
             canRotate = false;
             canMove = false;
             Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.lockState = CursorLockMode.None;
         }
     }
 

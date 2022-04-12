@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Define what behaviour to use when displaying a valid target, for example
+ * highlight it with a shader, increase its size, make it rotate, etc...
+ */
 public abstract class TargetingBehaviour : MonoBehaviour
 {
     protected Transform target;
