@@ -58,6 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e74a7f86ef2f64b90d4a3971d919f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionLabels:
+  - Rotate Left
+  - Rotate Right
   rotationSpeed: 100
   maxRotation: 45
 --- !u!1001 &3501840971063283984

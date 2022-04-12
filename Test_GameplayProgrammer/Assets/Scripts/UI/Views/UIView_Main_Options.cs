@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UIFramework.StateMachine;
 
-public interface IInteractable
+public class UIView_Main_Options : UIView
 {
-    void Interact1();
-    void Interact2();
+
 }

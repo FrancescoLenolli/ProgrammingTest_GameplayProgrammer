@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     private TargetingSystem targetingSystem;
     private PlayerInteraction playerInteraction;
 
+    public PlayerInteraction PlayerInteraction { get => playerInteraction; }
+
     private void Awake()
     {
         startingHeight = transform.position.y;

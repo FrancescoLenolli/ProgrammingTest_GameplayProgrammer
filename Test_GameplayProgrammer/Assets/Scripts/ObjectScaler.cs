@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ObjectScaler : MonoBehaviour, IInteractable
+public class ObjectScaler : Interactable
 {
     [SerializeField] private float scalingSpeed = 10f;
     [SerializeField] private float scalingPercentage = 50f;
@@ -16,7 +16,7 @@ public class ObjectScaler : MonoBehaviour, IInteractable
         maxScaleX = startingScaleX + scalePercentage;
     }
 
-    public void Interact1()
+    public override void Interact1()
     {
         float scaleAmount = scalingSpeed * Time.deltaTime;
         if (transform.localScale.x + scaleAmount < minScaleX || transform.localScale.x + scaleAmount > maxScaleX)
@@ -28,7 +28,7 @@ public class ObjectScaler : MonoBehaviour, IInteractable
             transform.localScale.z + scaleAmount);
     }
 
-    public void Interact2()
+    public override void Interact2()
     {
         float scaleAmount = scalingSpeed * Time.deltaTime;
         if (transform.localScale.x - scaleAmount < minScaleX || transform.localScale.x - scaleAmount > maxScaleX)

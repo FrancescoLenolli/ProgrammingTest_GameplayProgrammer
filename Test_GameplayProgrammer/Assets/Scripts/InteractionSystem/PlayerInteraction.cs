@@ -1,15 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    private IInteractable targetedObject;
+    public Action<Interactable> onTargetedObject;
+    private Interactable targetedObject;
 
-    public void SetTargetedObject(IInteractable newObject)
+    public void SetTargetedObject(Interactable newObject)
     {
         if (targetedObject != newObject)
+        {
             targetedObject = newObject;
+            onTargetedObject?.Invoke(targetedObject);
+        }
     }
 
     public void Interact1()

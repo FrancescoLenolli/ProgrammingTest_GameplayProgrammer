@@ -10,9 +10,9 @@ public class TargetingSystem : MonoBehaviour
     private TargetingBehaviour targetingBehaviour;
     private TargetingMethod targetingMethod;
     private Transform target;
-    private Action<IInteractable> onTargeting;
+    private Action<Interactable> onTargeting;
 
-    public Action<IInteractable> OnTargeting { get => onTargeting; set => onTargeting = value; }
+    public Action<Interactable> OnTargeting { get => onTargeting; set => onTargeting = value; }
 
     private void Awake()
     {

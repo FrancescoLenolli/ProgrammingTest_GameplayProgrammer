@@ -59,6 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd00181d08b48c14585b964cb079b02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionLabels:
+  - Scale Up
+  - Scale Down
   scalingSpeed: 5
   scalingPercentage: 50
 --- !u!65 &1747002096

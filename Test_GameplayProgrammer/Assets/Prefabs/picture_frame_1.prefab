@@ -58,6 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f10177b7a758f48907b371800033c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionLabels:
+  - Turn On
+  - Turn Off
   source: {fileID: 0}
 --- !u!1001 &3278503800762365770
 PrefabInstance:

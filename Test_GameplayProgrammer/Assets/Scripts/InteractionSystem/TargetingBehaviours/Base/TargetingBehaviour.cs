@@ -9,13 +9,13 @@ public abstract class TargetingBehaviour : MonoBehaviour
     protected abstract void FocusOn();
     protected abstract void FocusOff();
 
-    public IInteractable GetValidTarget(Transform newTarget)
+    public Interactable GetValidTarget(Transform newTarget)
     {
-        IInteractable currentInteractiveTarget = target ? target.GetComponent<IInteractable>() : null;
-        IInteractable newInteractiveTarget = null;
+        Interactable currentInteractiveTarget = target ? target.GetComponent<Interactable>() : null;
+        Interactable newInteractiveTarget = null;
 
         if (newTarget)
-            newInteractiveTarget = newTarget.GetComponent<IInteractable>();
+            newInteractiveTarget = newTarget.GetComponent<Interactable>();
 
         if (target && currentInteractiveTarget != null)
             FocusOff();

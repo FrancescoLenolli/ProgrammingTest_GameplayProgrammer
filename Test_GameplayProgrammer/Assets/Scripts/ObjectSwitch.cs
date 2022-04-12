@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectSwitch : MonoBehaviour, IInteractable
+public class ObjectSwitch : Interactable
 {
     [SerializeField] private GameObject source;
 
-    public void Interact1()
+    public override void Interact1()
     {
         source.SetActive(true);
     }
 
-    public void Interact2()
+    public override void Interact2()
     {
         source.SetActive(false);
     }
